@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://127.0.0.1:5000/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday Appy ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            color: white;
+            overflow-x: hidden;
+            background:
+                radial-gradient(circle at 20% 20%, #5b176f 0%, transparent 35%),
+                radial-gradient(circle at 80% 80%, #8b145f 0%, transparent 35%),
+                linear-gradient(135deg, #090014, #1b0528, #08000f);
+        }
+
+        /* Background stars */
+        .stars {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            background-image:
+                radial-gradient(white 1px, transparent 1px),
+                radial-gradient(#ffb5e6 1px, transparent 1px);
+            background-size: 70px 70px, 110px 110px;
+            opacity: 0.35;
+            animation: moveStars 15s linear infinite;
+        }
+
+        @keyframes moveStars {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(70px);
+            }
+        }
+
+        /* Main */
+        .screen {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 35px 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 900px;
+            padding: 45px 25px;
+            text-align: center;
+            border-radius: 35px;
+
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            box-shadow:
+                0 0 50px rgba(255, 0, 153, 0.25),
+                inset 0 0 30px rgba(255, 255, 255, 0.03);
+
+            animation: cardIn 1.2s ease;
+        }
+
+        @keyframes cardIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.92);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .small {
+            color: #ff9ddd;
+            font-size: 15px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .cake {
+            font-size: 70px;
+            margin: 5px 0 15px;
+            animation: cakeBounce 1.6s infinite;
+            filter: drop-shadow(0 0 15px rgba(255, 100, 200, 0.5));
+        }
+
+        @keyframes cakeBounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        h1 {
+            font-size: clamp(45px, 9vw, 90px);
+            line-height: 1;
+            margin-bottom: 10px;
+
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #ff72c8,
+                #ffffff,
+                #ff72c8
+            );
+
+            background-size: 300% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+
+            animation:
+                titleGlow 2s infinite alternate,
+                gradientMove 5s linear infinite;
+        }
+
+        @keyframes titleGlow {
+            from {
+                filter: drop-shadow(0 0 5px #ff4fba);
+            }
+
+            to {
+                filter: drop-shadow(0 0 25px #ff4fba);
+            }
+        }
+
+        @keyframes gradientMove {
+            to {
+                background-position: 300% center;
+            }
+        }
+
+        .name {
+            font-size: clamp(35px, 7vw, 65px);
+            font-weight: bold;
+            color: #ffd4ed;
+            margin-bottom: 25px;
+            text-shadow: 0 0 25px rgba(255, 100, 200, 0.7);
+        }
+
+        /* Photo */
+        .slideshow {
+            width: 100%;
+            max-width: 550px;
+            height: 550px;
+            margin: 25px auto;
+            border-radius: 28px;
+            overflow: hidden;
+            position: relative;
+
+            border: 2px solid rgba(255, 255, 255, 0.25);
+
+            box-shadow:
+                0 0 35px rgba(255, 45, 149, 0.45),
+                0 0 80px rgba(255, 45, 149, 0.15);
+        }
+
+        .slideshow img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
+        }
+
+        .photo-label {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            padding: 8px 18px;
+            border-radius: 30px;
+
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(8px);
+
+            font-size: 13px;
+            color: #ffe5f5;
+        }
+
+        /* Message */
+        .message {
+            max-width: 700px;
+            margin: 30px auto;
+            color: #f7dfef;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .message span {
+            color: #ff86cd;
+            font-weight: bold;
+        }
+
+        /* Button */
+        .btn {
+            margin-top: 10px;
+            padding: 16px 32px;
+
+            border: none;
+            border-radius: 50px;
+
+            background: linear-gradient(
+                45deg,
+                #ff168b,
+                #ff63c2,
+                #ff168b
+            );
+
+            background-size: 200% auto;
+
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 0 25px rgba(255, 45, 149, 0.5);
+
+            transition: 0.3s;
+            animation: buttonGlow 3s infinite;
+        }
+
+        .btn:hover {
+            transform: scale(1.08);
+            box-shadow:
+                0 0 45px rgba(255, 45, 149, 0.8);
+        }
+
+        @keyframes buttonGlow {
+            50% {
+                background-position: 100% center;
+            }
+        }
+
+        /* Secret message */
+        .hidden-message {
+            display: none;
+
+            max-width: 700px;
+            margin: 30px auto 0;
+            padding: 25px;
+
+            border-radius: 22px;
+
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+
+            color: #ffe1f1;
+            line-height: 1.8;
+
+            animation: messageIn 0.9s ease;
+        }
+
+        @keyframes messageIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .footer {
+            margin-top: 35px;
+            color: #bda9ba;
+            font-size: 13px;
+        }
+
+        /* Floating hearts */
+        .heart {
+            position: fixed;
+            bottom: -40px;
+
+            pointer-events: none;
+            z-index: 20;
+
+            animation: floatHeart linear forwards;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform:
+                    translateY(0)
+                    rotate(0deg)
+                    scale(0.7);
+
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            100% {
+                transform:
+                    translateY(-115vh)
+                    rotate(360deg)
+                    scale(1.4);
+
+                opacity: 0;
+            }
+        }
+
+        /* Sparkles */
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 15;
+            animation: sparkleMove 2s ease-out forwards;
+        }
+
+        @keyframes sparkleMove {
+            0% {
+                opacity: 1;
+                transform: scale(0.5);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(1.8) translateY(-80px);
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+
+            .card {
+                padding: 35px 16px;
+                border-radius: 25px;
+            }
+
+            .small {
+                font-size: 12px;
+                letter-spacing: 2px;
+            }
+
+            .cake {
+                font-size: 55px;
+            }
+
+            .message {
+                font-size: 16px;
+                line-height: 1.7;
+            }
+
+            .slideshow {
+                height: 400px;
+                border-radius: 22px;
+            }
+
+            .btn {
+                width: 90%;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="stars"></div>
+
+    <section class="screen">
+
+        <div class="card">
+
+            <div class="small">
+                A Little Birthday Surprise ✨
+            </div>
+
+            <div class="cake">
+                🎂
+            </div>
+
+            <h1>
+                Happy Birthday
+            </h1>
+
+            <div class="name">
+                Appy ❤️
+            </div>
+
+            <!-- PHOTO SLIDESHOW -->
+            <div class="slideshow">
+
+                <img id="birthdayPhoto" src="./Happy Birthday Appy ❤️_files/photo4.jpg" alt="Birthday Photo" style="opacity: 0;">
+
+                <div class="photo-label">
+                    Our Beautiful Memories ❤️
+                </div>
+
+            </div>
+
+            <p class="message">
+
+                Wishing you a beautiful birthday filled with
+                <span>happiness, smiles and unforgettable memories.</span>
+
+                <br><br>
+
+                Some people enter our lives and quietly become
+                <span>special.</span>
+
+                You are one of those people. ❤️
+
+                <br><br>
+
+                May every moment of your new year be filled with
+                love, peace and happiness. ✨
+
+            </p>
+
+            <button class="btn" onclick="showMessage()">
+                💌 Open Your Surprise
+            </button>
+
+            <div class="hidden-message" id="secretMessage">
+
+                ✨ No matter where life takes us,
+                I hope you always keep that beautiful smile. ❤️
+
+                <br><br>
+
+                May this new year of your life bring you
+                everything your heart wishes for.
+
+                <br><br>
+
+                Keep smiling.
+                Keep shining.
+                Keep being the amazing person you are. 💖
+
+                <br><br>
+
+                <strong>
+                    Happy Birthday once again, Appy! 🎂❤️
+                </strong>
+
+            </div>
+
+            <div class="footer">
+                Made with ❤️ | A small birthday surprise
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+        /* =========================
+           BIRTHDAY MESSAGE
+        ========================= */
+
+        function showMessage() {
+
+            const message =
+                document.getElementById("secretMessage");
+
+            message.style.display = "block";
+
+            createHearts(30);
+
+            createSparkles(20);
+
+            document.querySelector(".btn").innerHTML =
+                "❤️ Surprise Opened ❤️";
+        }
+
+
+        /* =========================
+           FLOATING HEARTS
+        ========================= */
+
+        function createHeart() {
+
+            const heart =
+                document.createElement("div");
+
+            heart.className = "heart";
+
+            const hearts = [
+                "❤️",
+                "💖",
+                "💕",
+                "💗",
+                "💓",
+                "💞",
+                "✨"
+            ];
+
+            heart.innerHTML =
+                hearts[
+                    Math.floor(
+                        Math.random() * hearts.length
+                    )
+                ];
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+            heart.style.fontSize =
+                (18 + Math.random() * 25) + "px";
+
+            heart.style.animationDuration =
+                (4 + Math.random() * 5) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 10000);
+        }
+
+
+        function createHearts(number) {
+
+            for (let i = 0; i < number; i++) {
+
+                setTimeout(() => {
+                    createHeart();
+                }, i * 100);
+
+            }
+        }
+
+
+        /* Automatic hearts */
+
+        setInterval(() => {
+            createHeart();
+        }, 1200);
+
+
+        /* =========================
+           SPARKLES
+        ========================= */
+
+        function createSparkle() {
+
+            const sparkle =
+                document.createElement("div");
+
+            sparkle.className = "sparkle";
+
+            sparkle.innerHTML = "✨";
+
+            sparkle.style.left =
+                Math.random() * 100 + "vw";
+
+            sparkle.style.top =
+                Math.random() * 100 + "vh";
+
+            sparkle.style.fontSize =
+                (12 + Math.random() * 20) + "px";
+
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 2000);
+        }
+
+
+        function createSparkles(number) {
+
+            for (let i = 0; i < number; i++) {
+
+                setTimeout(() => {
+                    createSparkle();
+                }, i * 100);
+
+            }
+        }
+
+
+        setInterval(() => {
+            createSparkle();
+        }, 1800);
+
+
+        /* =========================
+           PHOTO SLIDESHOW
+        ========================= */
+const photos = [
+    "/static/images/photo1.jpg",
+    "/static/images/photo2.jpg",
+    "/static/images/photo3.jpg",
+    "/static/images/photo4.jpg",
+    "/static/images/photo5.jpg"
+];
+
+let currentPhoto = 0;
+
+setInterval(function () {
+
+    const image = document.getElementById("birthdayPhoto");
+
+    image.style.opacity = "0";
+
+    setTimeout(function () {
+
+        currentPhoto = (currentPhoto + 1) % photos.length;
+
+        image.src = photos[currentPhoto];
+
+        image.style.opacity = "1";
+
+    }, 700);
+
+}, 4000);
+</script>
+setTimeout(function () {
+
+    const image = document.getElementById("birthdayPhoto");
+    let photoNumber = 1;
+
+    setInterval(function () {
+        photoNumber++;
+
+        if (photoNumber &gt; 5) {
+            photoNumber = 1;
+        }
+
+        image.style.opacity = "0";
+
+        setTimeout(function () {
+            image.src = "/static/images/photo" + photoNumber + ".jpg";
+            image.style.opacity = "1";
+        }, 700);
+
+    }, 4000);
+
+}, 1000);
+<div class="heart" style="left: 22.3497vw; font-size: 30.782px; animation-duration: 5.54007s;">💗</div><div class="heart" style="left: 89.6583vw; font-size: 40.5157px; animation-duration: 6.51547s;">✨</div><div class="heart" style="left: 85.3916vw; font-size: 20.2151px; animation-duration: 7.90118s;">❤️</div><div class="heart" style="left: 97.7709vw; font-size: 32.5416px; animation-duration: 5.65438s;">💞</div><div class="heart" style="left: 19.921vw; font-size: 28.816px; animation-duration: 6.68748s;">💓</div><div class="heart" style="left: 7.36094vw; font-size: 27.6909px; animation-duration: 8.71582s;">💓</div><div class="heart" style="left: 47.8081vw; font-size: 31.9417px; animation-duration: 5.13849s;">❤️</div><div class="sparkle" style="left: 53.0971vw; top: 62.695vh; font-size: 31.1155px;">✨</div><div class="heart" style="left: 49.2054vw; font-size: 35.3185px; animation-duration: 7.39035s;">💖</div></body></html>

@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Appy ❤️</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    font-family:Arial,sans-serif;
+    color:white;
+    overflow-x:hidden;
+
+    background:
+        radial-gradient(circle at 20% 20%,#5d2380 0%,transparent 32%),
+        radial-gradient(circle at 80% 70%,#8d286f 0%,transparent 32%),
+        linear-gradient(135deg,#08000f,#18072b,#090014);
+}
+
+.stars{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+
+    background-image:
+        radial-gradient(#fff 1px,transparent 1px),
+        radial-gradient(#ffd8ff 1px,transparent 1px);
+
+    background-size:65px 65px,105px 105px;
+    opacity:.4;
+
+    animation:starMove 18s linear infinite;
+}
+
+@keyframes starMove{
+    from{transform:translateY(0)}
+    to{transform:translateY(70px)}
+}
+
+.moon{
+    position:fixed;
+    top:8%;
+    right:8%;
+
+    width:95px;
+    height:95px;
+
+    border-radius:50%;
+
+    background:#fff2c7;
+
+    box-shadow:
+        0 0 25px #ffe7a8,
+        0 0 70px rgba(255,220,150,.5);
+
+    z-index:0;
+    opacity:.9;
+}
+
+.moon:after{
+    content:"";
+
+    position:absolute;
+
+    width:95px;
+    height:95px;
+
+    border-radius:50%;
+
+    background:#120524;
+
+    left:25px;
+    top:-10px;
+}
+
+.screen{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:40px 15px;
+
+    position:relative;
+    z-index:1;
+}
+
+.card{
+    width:100%;
+    max-width:900px;
+
+    padding:50px 25px;
+
+    text-align:center;
+
+    border-radius:35px;
+
+    background:rgba(255,255,255,.075);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+        0 0 60px rgba(180,80,255,.25),
+        inset 0 0 30px rgba(255,255,255,.03);
+}
+
+.small{
+    color:#e9a9ff;
+
+    font-size:14px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    margin-bottom:18px;
+}
+
+.cake{
+    font-size:65px;
+
+    margin-bottom:18px;
+
+    animation:cakeFloat 1.7s infinite;
+
+    filter:drop-shadow(0 0 18px #ff9eea);
+}
+
+@keyframes cakeFloat{
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+h1{
+    font-size:clamp(42px,9vw,85px);
+
+    line-height:1;
+
+    margin-bottom:12px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #ff8fd8,
+            #dca5ff,
+            #fff
+        );
+
+    background-size:300% auto;
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+    animation:titleMagic 5s linear infinite;
+}
+
+@keyframes titleMagic{
+    to{
+        background-position:300% center;
+    }
+}
+
+.name{
+    font-size:clamp(34px,7vw,62px);
+
+    font-weight:bold;
+
+    color:#ffd8f3;
+
+    margin-bottom:25px;
+
+    text-shadow:
+        0 0 20px #ff78d0,
+        0 0 45px rgba(190,90,255,.6);
+}
+
+.message{
+    max-width:700px;
+
+    margin:30px auto;
+
+    color:#f8e4f3;
+
+    font-size:18px;
+
+    line-height:1.8;
+}
+
+.message span{
+    color:#ff9cdb;
+    font-weight:bold;
+}
+
+.btn{
+    margin-top:15px;
+
+    padding:17px 34px;
+
+    border:none;
+
+    border-radius:50px;
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    background:
+        linear-gradient(
+            45deg,
+            #8d42d6,
+            #e56be8,
+            #ff72bd,
+            #8d42d6
+        );
+
+    background-size:300% auto;
+
+    box-shadow:
+        0 0 25px rgba(211,100,255,.6);
+
+    animation:magicButton 4s infinite;
+
+    transition:.3s;
+}
+
+@keyframes magicButton{
+    50%{
+        background-position:100% center;
+    }
+}
+
+.btn:hover{
+    transform:scale(1.08);
+
+    box-shadow:
+        0 0 45px rgba(231,130,255,.9);
+}
+
+.hidden-message{
+    display:none;
+
+    max-width:700px;
+
+    margin:30px auto 0;
+
+    padding:27px;
+
+    border-radius:25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(147,73,185,.25),
+            rgba(255,255,255,.06)
+        );
+
+    border:1px solid rgba(255,210,255,.25);
+
+    color:#ffe8f6;
+
+    line-height:1.8;
+
+    box-shadow:
+        0 0 35px rgba(181,88,255,.2);
+
+    animation:messageAppear 1s ease;
+}
+
+@keyframes messageAppear{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.magic-overlay{
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(103,43,153,.65),
+            rgba(5,0,15,.95)
+        );
+
+    backdrop-filter:blur(10px);
+
+    z-index:100;
+}
+
+.magic-overlay.show{
+    display:flex;
+
+    animation:overlayShow .6s ease;
+}
+
+@keyframes overlayShow{
+    from{opacity:0}
+    to{opacity:1}
+}
+
+.magic-box{
+    width:100%;
+    max-width:370px;
+
+    padding:25px 20px 28px;
+
+    text-align:center;
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(143,75,184,.55),
+            rgba(35,8,58,.92)
+        );
+
+    border:
+        1px solid rgba(255,220,255,.45);
+
+    box-shadow:
+        0 0 50px rgba(198,104,255,.65);
+
+    animation:boxAppear .9s ease;
+
+    position:relative;
+    overflow:hidden;
+}
+
+@keyframes boxAppear{
+
+    0%{
+        opacity:0;
+        transform:scale(.5) translateY(60px);
+    }
+
+    70%{
+        transform:scale(1.05) translateY(-5px);
+    }
+
+    100%{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.rapunzel-image{
+    width:145px;
+    height:145px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:3px solid #f4c6ff;
+
+    box-shadow:
+        0 0 20px #d66cff,
+        0 0 50px rgba(221,110,255,.7);
+
+    animation:rapunzelFloat 2.5s ease-in-out infinite;
+}
+
+@keyframes rapunzelFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+}
+
+.magic-title{
+    margin-top:15px;
+
+    font-size:26px;
+
+    color:#f4d7ff;
+
+    text-shadow:
+        0 0 15px #d36cff;
+}
+
+.magic-text{
+    margin:10px 0 20px;
+
+    color:#ffeafa;
+
+    line-height:1.7;
+
+    font-size:15px;
+}
+
+.magic-button{
+    border:none;
+
+    padding:13px 24px;
+
+    border-radius:30px;
+
+    color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    background:
+        linear-gradient(
+            45deg,
+            #8b42c9,
+            #ed7bf1,
+            #7139c7
+        );
+
+    box-shadow:
+        0 0 25px rgba(211,100,255,.6);
+
+    transition:.3s;
+}
+
+.magic-button:hover{
+    transform:scale(1.07);
+}
+
+.memory-gallery{
+    display:none;
+
+    margin:40px auto 20px;
+
+    max-width:800px;
+
+    padding:28px 20px;
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(89,35,117,.4),
+            rgba(255,255,255,.05)
+        );
+
+    border:
+        1px solid rgba(255,220,255,.25);
+
+    box-shadow:
+        0 0 45px rgba(182,83,255,.25);
+}
+
+.memory-gallery.show{
+    display:block;
+
+    animation:galleryOpen 1s ease;
+}
+
+@keyframes galleryOpen{
+
+    from{
+        opacity:0;
+        transform:scale(.85);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.memory-title{
+    font-family:Georgia,serif;
+
+    color:#f6d3ff;
+
+    font-size:28px;
+
+    margin-bottom:8px;
+
+    text-shadow:
+        0 0 15px #c76cff;
+}
+
+.memory-subtitle{
+    color:#dcb8e8;
+
+    font-size:13px;
+
+    margin-bottom:22px;
+}
+
+/* =========================
+   STORY BOOK
+========================= */
+
+.story-book{
+    position:relative;
+
+    max-width:600px;
+
+    min-height:450px;
+
+    margin:auto;
+
+    padding:15px;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #35133f,
+            #5b2163,
+            #2c123b
+        );
+
+    border:
+        3px solid #dca4e9;
+
+    box-shadow:
+        0 0 30px rgba(219,131,255,.35),
+        inset 0 0 35px rgba(0,0,0,.35);
+}
+
+.book-page{
+    position:relative;
+
+    padding:10px;
+
+    border-radius:15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff2dc,
+            #f5d6ec,
+            #ecd5ff
+        );
+
+    box-shadow:
+        inset 0 0 20px rgba(119,53,123,.25);
+
+    overflow:hidden;
+}
+
+/* =========================
+   PHOTO SIZE FIX
+   Full photo visible
+   Face koncham smaller
+========================= */
+
+.book-photo{
+    width:100%;
+
+    height:350px;
+
+    object-fit:contain;
+
+    background:#f5d6ec;
+
+    border-radius:10px;
+
+    display:block;
+
+    opacity:0;
+
+    transform:
+        scale(.92)
+        translateY(15px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+
+    border:
+        4px solid rgba(255,255,255,.8);
+
+    box-shadow:
+        0 0 20px rgba(150,72,190,.4);
+}
+
+.book-photo.active{
+    opacity:1;
+
+    transform:
+        scale(.94)
+        translateY(0);
+}
+
+.magic-wave{
+    position:absolute;
+
+    left:-120%;
+
+    top:0;
+
+    width:70%;
+
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,221,125,.7),
+            rgba(255,245,184,.9),
+            transparent
+        );
+
+    transform:skewX(-20deg);
+
+    pointer-events:none;
+}
+
+.magic-wave.animate{
+    animation:goldWave 1.1s ease;
+}
+
+@keyframes goldWave{
+    from{
+        left:-120%;
+    }
+
+    to{
+        left:150%;
+    }
+}
+
+.photo-caption{
+    margin-top:12px;
+
+    font-family:Georgia,serif;
+
+    color:#633c68;
+
+    font-size:16px;
+
+    font-weight:bold;
+}
+
+.flower{
+    position:absolute;
+
+    font-size:28px;
+
+    z-index:4;
+
+    filter:
+        drop-shadow(0 0 8px #ffb9ff);
+
+    animation:flowerFloat 3s ease-in-out infinite;
+}
+
+.flower.one{
+    top:8px;
+    left:8px;
+}
+
+.flower.two{
+    top:8px;
+    right:8px;
+
+    animation-delay:.7s;
+}
+
+.flower.three{
+    bottom:8px;
+    left:8px;
+
+    animation-delay:1s;
+}
+
+.flower.four{
+    bottom:8px;
+    right:8px;
+
+    animation-delay:1.5s;
+}
+
+@keyframes flowerFloat{
+
+    50%{
+        transform:translateY(-5px) rotate(8deg);
+    }
+}
+
+.story-controls{
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-top:20px;
+}
+
+.story-btn{
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:25px;
+
+    background:
+        linear-gradient(
+            45deg,
+            #8b43c6,
+            #d86de8
+        );
+
+    color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 0 15px rgba(202,100,255,.4);
+
+    transition:.3s;
+}
+
+.story-btn:hover{
+    transform:scale(1.07);
+}
+
+.page-number{
+    color:#e8c7ef;
+
+    font-size:14px;
+}
+
+.final-ending{
+    display:none;
+
+    margin-top:30px;
+
+    padding:30px 20px;
+
+    border-radius:25px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(222,119,255,.2),
+            rgba(255,255,255,.03)
+        );
+
+    border:1px solid rgba(255,210,255,.3);
+
+    animation:finalReveal 1.5s ease;
+}
+
+.final-ending.show{
+    display:block;
+}
+
+@keyframes finalReveal{
+
+    from{
+        opacity:0;
+        transform:scale(.7);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.final-ending h2{
+    font-family:Georgia,serif;
+
+    color:#ffd9fa;
+
+    font-size:28px;
+
+    text-shadow:
+        0 0 20px #e878ff;
+}
+
+.final-ending p{
+    margin-top:10px;
+
+    color:#f5dff2;
+
+    line-height:1.7;
+}
+
+.heart,
+.lantern,
+.sparkle{
+    position:fixed;
+
+    pointer-events:none;
+
+    z-index:120;
+}
+
+.heart{
+    bottom:-40px;
+
+    animation:heartFloat linear forwards;
+}
+
+@keyframes heartFloat{
+
+    0%{
+        transform:
+            translateY(0)
+            rotate(0)
+            scale(.7);
+
+        opacity:0;
+    }
+
+    15%{
+        opacity:1;
+    }
+
+    100%{
+        transform:
+            translateY(-115vh)
+            rotate(360deg)
+            scale(1.4);
+
+        opacity:0;
+    }
+}
+
+.sparkle{
+    animation:sparkleMove 2s ease-out forwards;
+}
+
+@keyframes sparkleMove{
+
+    0%{
+        opacity:1;
+        transform:scale(.5);
+    }
+
+    100%{
+        opacity:0;
+        transform:
+            scale(1.8)
+            translateY(-80px);
+    }
+}
+
+.lantern{
+    bottom:-50px;
+
+    animation:lanternMove 6s linear forwards;
+}
+
+@keyframes lanternMove{
+
+    0%{
+        opacity:0;
+        transform:
+            translateY(20vh)
+            scale(.5);
+    }
+
+    15%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:0;
+        transform:
+            translateY(-115vh)
+            scale(1.1);
+    }
+}
+
+.footer{
+    margin-top:35px;
+
+    color:#bda9ba;
+
+    font-size:13px;
+}
+
+@media(max-width:600px){
+
+    .card{
+        padding:35px 16px;
+        border-radius:25px;
+    }
+
+    .moon{
+        width:65px;
+        height:65px;
+        top:5%;
+        right:5%;
+    }
+
+    .moon:after{
+        width:65px;
+        height:65px;
+        left:18px;
+        top:-7px;
+    }
+
+    .small{
+        font-size:11px;
+        letter-spacing:2px;
+    }
+
+    .cake{
+        font-size:55px;
+    }
+
+    .message{
+        font-size:16px;
+        line-height:1.7;
+    }
+
+    .btn{
+        width:90%;
+        font-size:16px;
+    }
+
+    .magic-box{
+        max-width:330px;
+    }
+
+    .rapunzel-image{
+        width:120px;
+        height:120px;
+    }
+
+    .story-book{
+        min-height:390px;
+    }
+
+    .book-photo{
+        height:290px;
+        object-fit:contain;
+        background:#f5d6ec;
+    }
+
+    .memory-title{
+        font-size:23px;
+    }
+
+    .flower{
+        font-size:22px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+<div class="moon"></div>
+
+<section class="screen">
+
+<div class="card">
+
+    <div class="small">
+        A Little Birthday Surprise ✨
+    </div>
+
+    <div class="cake">
+        🎂
+    </div>
+
+    <h1>
+        𝓗𝓪𝓹𝓹𝔂 𝓑𝓲𝓻𝓽𝓱𝓭𝓪𝔂
+    </h1>
+
+    <div class="name">
+        Appy ❤️
+    </div>
+
+    <p class="message">
+
+        Wishing you a beautiful birthday filled with
+        <span>happiness, smiles and unforgettable memories.</span>
+
+        <br><br>
+
+        Some people enter our lives and quietly become
+        <span>special.</span>
+
+        You are one of those people. ❤️
+
+        <br><br>
+
+        May every moment of your new year be filled with
+        love, peace and happiness. ✨
+
+    </p>
+
+    <button
+        class="btn"
+        onclick="showMessage()"
+    >
+        ✨ Unlock the Magic ✨
+    </button>
+
+    <div
+        class="hidden-message"
+        id="secretMessage"
+    >
+
+        ✨ I’ll always be grateful for all the beautiful
+        memories we’ve shared. ❤️
+
+        <br><br>
+
+        Some moments may become memories,
+        some memories may become stories,
+        but the special people in our lives
+        always remain close to our hearts. 💖
+
+        <br><br>
+
+        I hope this birthday brings you countless
+        reasons to smile, lots of happiness,
+        and everything you truly deserve. ✨
+
+        <br><br>
+
+        Keep smiling,
+        keep shining,
+        and never stop being the amazing person you are. ❤️
+
+        <br><br>
+
+        And once again...
+
+        <br><br>
+
+        <strong>
+            🎂 Happy Birthday, Appy! 🎉❤️
+        </strong>
+
+        <br><br>
+
+        May this year be your most beautiful chapter yet. ✨
+
+    </div>
+
+    <div
+        class="memory-gallery"
+        id="memoryGallery"
+    >
+
+        <div class="memory-title">
+            📖✨  Magical Memories ✨📖
+        </div>
+
+        <div class="memory-subtitle">
+            Turn the pages and discover a little magic... 💜
+        </div>
+
+        <div class="story-book">
+
+            <div class="flower one">🌸</div>
+            <div class="flower two">🌷</div>
+            <div class="flower three">🌸</div>
+            <div class="flower four">🌷</div>
+
+            <div class="book-page">
+
+                <img
+                    id="bookPhoto"
+                    class="book-photo"
+                    src=""
+                    alt="Magical Memory"
+                >
+
+                <div
+                    class="magic-wave"
+                    id="magicWave"
+                ></div>
+
+                <div
+                    class="photo-caption"
+                    id="photoCaption"
+                >
+                    A beautiful memory ❤️
+                </div>
+
+            </div>
+
+            <div class="story-controls">
+
+                <button
+                    class="story-btn"
+                    onclick="previousPhoto()"
+                >
+                    ←
+                </button>
+
+                <div
+                    class="page-number"
+                    id="pageNumber"
+                >
+                    Page 1 of 8
+                </div>
+
+                <button
+                    class="story-btn"
+                    onclick="nextPhoto()"
+                >
+                    Turn Page ✨
+                </button>
+
+            </div>
+
+        </div>
+
+        <div
+            class="final-ending"
+            id="finalEnding"
+        >
+
+            <h2>
+                👑 The End of a Magical Chapter 👑
+            </h2>
+
+            <p>
+                And this little story will always have
+                a beautiful place in my heart. 💜
+                <br><br>
+                🎂 Happy Birthday, Appy! ❤️✨
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        Made with ❤️ | A little magical birthday story
+    </div>
+
+</div>
+
+</section>
+
+<div
+    class="magic-overlay"
+    id="magicOverlay"
+>
+
+    <div class="magic-box">
+
+        <img
+            class="rapunzel-image"
+            src="{{ url_for('static', filename='images/rapunzel.png') }}"
+            alt="Rapunzel"
+        >
+
+        <div class="magic-title">
+            Hey Appy! 💜
+        </div>
+
+        <div class="magic-text">
+
+            I have a little magical surprise
+            waiting just for you... ✨
+
+            <br>
+
+            Are you ready? 🌸💫
+
+        </div>
+
+        <button
+            class="magic-button"
+            onclick="openMagic()"
+        >
+            ✨ Here is Your Surprise ✨
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+const birthdayMusic = new Audio(
+    "{{ url_for('static', filename='music/birthday.mp3') }}"
+);
+
+birthdayMusic.loop = true;
+birthdayMusic.volume = 0.7;
+
+const photos = [
+
+    "{{ url_for('static', filename='images/photo1.jpg') }}",
+
+    "{{ url_for('static', filename='images/photo2.jpg') }}",
+
+    "{{ url_for('static', filename='images/photo3.jpg') }}",
+
+    "{{ url_for('static', filename='images/photo4.jpg') }}",
+
+    "{{ url_for('static', filename='images/photo5.jpg') }}",
+
+    "{{ url_for('static', filename='images/photo6.jpg') }}",
+
+    "{{ url_for('static', filename='images/photo7.jpg') }}",
+
+    "{{ url_for('static', filename='images/photo8.jpg') }}"
+
+];
+
+let currentPhoto = 0;
+
+const captions = [
+
+    "Where the beautiful memories begin... ❤️",
+
+    "A little moment worth remembering... ✨",
+
+    "Another page of happiness... 💜",
+
+    "Some memories are simply magical... 🌸",
+
+    "A moment that deserves to stay forever... 💖",
+
+    "Another beautiful chapter... 🌙",
+
+    "Smiles that make memories special... ✨",
+
+    "And this one will always be special... 👑"
+
+];
+
+function showMessage(){
+
+    birthdayMusic.currentTime = 0;
+
+    birthdayMusic.play().catch(function(){
+        console.log("Music waiting for interaction");
+    });
+
+    const overlay =
+        document.getElementById("magicOverlay");
+
+    overlay.classList.add("show");
+
+    createHearts(20);
+    createSparkles(30);
+    createLanterns(12);
+}
+
+function openMagic(){
+
+    const overlay =
+        document.getElementById("magicOverlay");
+
+    overlay.classList.remove("show");
+
+    const message =
+        document.getElementById("secretMessage");
+
+    message.style.display = "block";
+
+    const gallery =
+        document.getElementById("memoryGallery");
+
+    gallery.classList.add("show");
+
+    document.querySelector(".btn").innerHTML =
+        "💜 Magic Unlocked 💜";
+
+    createHearts(40);
+    createSparkles(40);
+    createLanterns(20);
+
+    setTimeout(function(){
+
+        showPhoto(0);
+
+        gallery.scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+
+    },500);
+}
+
+function showPhoto(index){
+
+    currentPhoto = index;
+
+    const image =
+        document.getElementById("bookPhoto");
+
+    const wave =
+        document.getElementById("magicWave");
+
+    const caption =
+        document.getElementById("photoCaption");
+
+    const page =
+        document.getElementById("pageNumber");
+
+    image.classList.remove("active");
+
+    wave.classList.remove("animate");
+
+    void wave.offsetWidth;
+
+    wave.classList.add("animate");
+
+    setTimeout(function(){
+
+        image.src = photos[currentPhoto];
+
+        caption.innerHTML =
+            captions[currentPhoto];
+
+        page.innerHTML =
+            "Page " +
+            (currentPhoto + 1) +
+            " of " +
+            photos.length;
+
+        image.classList.add("active");
+
+    },400);
+
+    if(currentPhoto === photos.length - 1){
+
+        setTimeout(function(){
+
+            document
+                .getElementById("finalEnding")
+                .classList.add("show");
+
+            createSparkles(30);
+            createLanterns(15);
+
+        },1200);
+
+    }
+}
+
+function nextPhoto(){
+
+    currentPhoto++;
+
+    if(currentPhoto >= photos.length){
+        currentPhoto = 0;
+
+        document
+            .getElementById("finalEnding")
+            .classList.remove("show");
+    }
+
+    showPhoto(currentPhoto);
+}
+
+function previousPhoto(){
+
+    currentPhoto--;
+
+    if(currentPhoto < 0){
+        currentPhoto = photos.length - 1;
+    }
+
+    document
+        .getElementById("finalEnding")
+        .classList.remove("show");
+
+    showPhoto(currentPhoto);
+}
+
+function createHeart(){
+
+    const heart =
+        document.createElement("div");
+
+    heart.className = "heart";
+
+    const hearts = [
+        "❤️",
+        "💖",
+        "💕",
+        "💜",
+        "💗",
+        "✨"
+    ];
+
+    heart.innerHTML =
+        hearts[
+            Math.floor(
+                Math.random() * hearts.length
+            )
+        ];
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (18 + Math.random() * 25) + "px";
+
+    heart.style.animationDuration =
+        (4 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(function(){
+        heart.remove();
+    },10000);
+}
+
+function createHearts(number){
+
+    for(
+        let i = 0;
+        i < number;
+        i++
+    ){
+
+        setTimeout(function(){
+            createHeart();
+        },i * 100);
+
+    }
+}
+
+setInterval(function(){
+    createHeart();
+},1500);
+
+function createSparkle(){
+
+    const sparkle =
+        document.createElement("div");
+
+    sparkle.className =
+        "sparkle";
+
+    sparkle.innerHTML =
+        "✨";
+
+    sparkle.style.left =
+        Math.random() * 100 + "vw";
+
+    sparkle.style.top =
+        Math.random() * 100 + "vh";
+
+    sparkle.style.fontSize =
+        (12 + Math.random() * 20) + "px";
+
+    document.body.appendChild(sparkle);
+
+    setTimeout(function(){
+        sparkle.remove();
+    },2000);
+}
+
+function createSparkles(number){
+
+    for(
+        let i = 0;
+        i < number;
+        i++
+    ){
+
+        setTimeout(function(){
+            createSparkle();
+        },i * 80);
+
+    }
+}
+
+setInterval(function(){
+    createSparkle();
+},1800);
+
+function createLantern(){
+
+    const lantern =
+        document.createElement("div");
+
+    lantern.className =
+        "lantern";
+
+    lantern.innerHTML =
+        "🏮";
+
+    lantern.style.left =
+        Math.random() * 100 + "vw";
+
+    lantern.style.fontSize =
+        (20 + Math.random() * 18) + "px";
+
+    document.body.appendChild(lantern);
+
+    setTimeout(function(){
+        lantern.remove();
+    },6000);
+}
+
+function createLanterns(number){
+
+    for(
+        let i = 0;
+        i < number;
+        i++
+    ){
+
+        setTimeout(function(){
+            createLantern();
+        },i * 180);
+
+    }
+}
+
+createSparkles(8);
+
+</script>
+
+</body>
+</html>
