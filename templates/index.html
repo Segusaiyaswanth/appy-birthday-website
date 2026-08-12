@@ -535,17 +535,13 @@ h1{
 
 .story-book{
     position:relative;
-
     max-width:600px;
-
     min-height:450px;
-
     margin:auto;
-
     padding:15px;
 
+    /* Real book cover */
     border-radius:20px;
-
     background:
         linear-gradient(
             135deg,
@@ -554,19 +550,23 @@ h1{
             #2c123b
         );
 
-    border:
-        3px solid #dca4e9;
+    border:3px solid #dca4e9;
 
     box-shadow:
         0 0 30px rgba(219,131,255,.35),
         inset 0 0 35px rgba(0,0,0,.35);
+
+    perspective:1400px;
 }
+
+/* =========================
+   BOOK PAGE
+   ========================= */
 
 .book-page{
     position:relative;
 
     padding:10px;
-
     border-radius:15px;
 
     background:
@@ -578,45 +578,96 @@ h1{
         );
 
     box-shadow:
-        inset 0 0 20px rgba(119,53,123,.25);
+        inset 0 0 20px rgba(119,53,123,.25),
+        0 8px 20px rgba(50,15,60,.25);
 
     overflow:hidden;
+
+    transform-style:preserve-3d;
+    transform-origin:left center;
+
+    backface-visibility:hidden;
+}
+
+/* Page turning animations */
+.book-page.turn-next{
+    animation:bookPageNext .85s ease-in-out;
+}
+
+.book-page.turn-prev{
+    transform-origin:right center;
+    animation:bookPagePrev .85s ease-in-out;
+}
+
+@keyframes bookPageNext{
+    0%{
+        transform:rotateY(0deg);
+        box-shadow:
+            inset 0 0 20px rgba(119,53,123,.25),
+            0 8px 20px rgba(50,15,60,.25);
+    }
+
+    45%{
+        transform:rotateY(-82deg);
+        box-shadow:
+            inset 25px 0 35px rgba(40,10,50,.35),
+            -12px 8px 25px rgba(40,10,50,.25);
+    }
+
+    100%{
+        transform:rotateY(0deg);
+        box-shadow:
+            inset 0 0 20px rgba(119,53,123,.25),
+            0 8px 20px rgba(50,15,60,.25);
+    }
+}
+
+@keyframes bookPagePrev{
+    0%{
+        transform:rotateY(0deg);
+    }
+
+    45%{
+        transform:rotateY(82deg);
+        box-shadow:
+            inset -25px 0 35px rgba(40,10,50,.35),
+            12px 8px 25px rgba(40,10,50,.25);
+    }
+
+    100%{
+        transform:rotateY(0deg);
+    }
 }
 
 /* =========================
    PHOTO SIZE FIX
    Full photo visible
-   Face koncham smaller
-========================= */
+   ========================= */
 
 .book-photo{
     width:100%;
-
     height:350px;
 
     object-fit:contain;
-
     background:#f5d6ec;
 
     border-radius:10px;
-
     display:block;
 
     opacity:0;
-
-    transform:
-        scale(.92)
-        translateY(15px);
+    transform:scale(.92) translateY(15px);
 
     transition:
         opacity .8s ease,
         transform .8s ease;
 
-    border:
-        4px solid rgba(255,255,255,.8);
+    border:4px solid rgba(255,255,255,.8);
 
     box-shadow:
         0 0 20px rgba(150,72,190,.4);
+
+    /* Keep photo flat like a printed book photo */
+    backface-visibility:hidden;
 }
 
 .book-photo.active{
@@ -631,11 +682,9 @@ h1{
     position:absolute;
 
     left:-120%;
-
     top:0;
 
     width:70%;
-
     height:100%;
 
     background:
@@ -676,52 +725,6 @@ h1{
     font-size:16px;
 
     font-weight:bold;
-}
-
-.flower{
-    position:absolute;
-
-    font-size:28px;
-
-    z-index:4;
-
-    filter:
-        drop-shadow(0 0 8px #ffb9ff);
-
-    animation:flowerFloat 3s ease-in-out infinite;
-}
-
-.flower.one{
-    top:8px;
-    left:8px;
-}
-
-.flower.two{
-    top:8px;
-    right:8px;
-
-    animation-delay:.7s;
-}
-
-.flower.three{
-    bottom:8px;
-    left:8px;
-
-    animation-delay:1s;
-}
-
-.flower.four{
-    bottom:8px;
-    right:8px;
-
-    animation-delay:1.5s;
-}
-
-@keyframes flowerFloat{
-
-    50%{
-        transform:translateY(-5px) rotate(8deg);
-    }
 }
 
 .story-controls{
@@ -975,6 +978,7 @@ h1{
 
     .story-book{
         min-height:390px;
+        perspective:1000px;
     }
 
     .book-photo{
@@ -1017,20 +1021,20 @@ h1{
     </h1>
 
     <div class="name">
-        Appy ❤️
+          𝓐𝓹𝓹𝔂 
     </div>
 
     <p class="message">
 
-        Wishing you a beautiful birthday filled with
-        <span>happiness, smiles and unforgettable memories.</span>
+        Happy Birthday to the cutest soul! 💗✨
+        <span>May your day be filled with endless smiles, sweet surprises, and all the happiness your heart can hold</span>
 
-        <br><br>
+        <br>You deserve every beautiful moment today and always<br>
 
-        Some people enter our lives and quietly become
-        <span>special.</span>
+        
+        <span>forever.</span>
 
-        You are one of those people. ❤️
+        Stay adorable, keep shining, and never stop being the amazing person you are💐🎂
 
         <br><br>
 
@@ -1051,17 +1055,17 @@ h1{
         id="secretMessage"
     >
 
-        ✨ I’ll always be grateful for all the beautiful
-        memories we’ve shared. ❤️
+        ✨ I am truly grateful to have a bestie like you in my life ❤️
 
         <br><br>
 
-        Some moments may become memories,
-        some memories may become stories,
-        but the special people in our lives
+        Some people enter our lives and  become
+        <span>special.</span>
+        You are one of those people.💖
+        The special people in our lives
         always remain close to our hearts. 💖
 
-        <br><br>
+      <br><br>
 
         I hope this birthday brings you countless
         reasons to smile, lots of happiness,
@@ -1071,16 +1075,16 @@ h1{
 
         Keep smiling,
         keep shining,
-        and never stop being the amazing person you are. ❤️
+        and never stop being the amazing person you are❤️
 
         <br><br>
 
-        And once again...
+        And once again..
 
         <br><br>
 
         <strong>
-            🎂 Happy Birthday, Appy! 🎉❤️
+            🎂 Happy Birthday Appy 🎉❤️
         </strong>
 
         <br><br>
@@ -1104,10 +1108,7 @@ h1{
 
         <div class="story-book">
 
-            <div class="flower one">🌸</div>
-            <div class="flower two">🌷</div>
-            <div class="flower three">🌸</div>
-            <div class="flower four">🌷</div>
+        
 
             <div class="book-page">
 
@@ -1165,12 +1166,12 @@ h1{
         >
 
             <h2>
-                👑 The End of a Magical Chapter 👑
+                👑 End of a Magical Chapter 👑
             </h2>
 
             <p>
                 And this little story will always have
-                a beautiful place in my heart. 💜
+                a beautiful💜
                 <br><br>
                 🎂 Happy Birthday, Appy! ❤️✨
             </p>
@@ -1347,6 +1348,11 @@ function showPhoto(index){
     const page =
         document.getElementById("pageNumber");
 
+    const bookPage =
+        document.querySelector(".book-page");
+
+    bookPage.classList.remove("turn-next","turn-prev");
+
     image.classList.remove("active");
 
     wave.classList.remove("animate");
@@ -1390,6 +1396,13 @@ function showPhoto(index){
 
 function nextPhoto(){
 
+    const bookPage =
+        document.querySelector(".book-page");
+
+    bookPage.classList.remove("turn-next","turn-prev");
+    void bookPage.offsetWidth;
+    bookPage.classList.add("turn-next");
+
     currentPhoto++;
 
     if(currentPhoto >= photos.length){
@@ -1400,10 +1413,19 @@ function nextPhoto(){
             .classList.remove("show");
     }
 
-    showPhoto(currentPhoto);
+    setTimeout(function(){
+        showPhoto(currentPhoto);
+    },420);
 }
 
 function previousPhoto(){
+
+    const bookPage =
+        document.querySelector(".book-page");
+
+    bookPage.classList.remove("turn-next","turn-prev");
+    void bookPage.offsetWidth;
+    bookPage.classList.add("turn-prev");
 
     currentPhoto--;
 
@@ -1415,7 +1437,9 @@ function previousPhoto(){
         .getElementById("finalEnding")
         .classList.remove("show");
 
-    showPhoto(currentPhoto);
+    setTimeout(function(){
+        showPhoto(currentPhoto);
+    },420);
 }
 
 function createHeart(){
@@ -1428,9 +1452,9 @@ function createHeart(){
     const hearts = [
         "❤️",
         "💖",
-        "💕",
+        "🎉",
         "💜",
-        "💗",
+        "🎊",
         "✨"
     ];
 
